@@ -54,13 +54,27 @@ def plot_data(df, secondary_y, y1_range, y2_range):
         autosize=False,
         width=800,  # 幅
         height=400,  # 高さ
+        xaxis=dict(
+            title_text="TIME",  # X軸のラベルを設定します。
+            title_font=dict(size=18),  # X軸のラベルのフォントサイズを設定します。
+            tickfont=dict(size=18),  # X軸の目盛りのフォントサイズを設定します。
+        ),
         yaxis1=dict(
             range=y1_range,  # 1つ目のY軸の表示範囲を設定します。
+            title_text=secondary_y,  # 1つ目のY軸のラベルを設定します。
+            title_font=dict(size=18),  # 1つ目のY軸のラベルのフォントサイズを設定します。
+            tickfont=dict(size=18),  # 1つ目のY軸の目盛りのフォントサイズを設定します。
         ),
         yaxis2=dict(
             range=y2_range,  # 2つ目のY軸の表示範囲を設定します。
+            title_text=secondary_y,  # 2つ目のY軸のラベルを設定します。
+            title_font=dict(size=18),  # 2つ目のY軸のラベルのフォントサイズを設定します。
+            tickfont=dict(size=18),  # 2つ目のY軸の目盛りのフォントサイズを設定します。
             overlaying='y',
             side='right'
+        ),
+        legend=dict(
+            font=dict(size=18)  # 凡例のフォントサイズを設定します。
         )
     )
 
