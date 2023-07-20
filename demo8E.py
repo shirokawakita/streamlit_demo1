@@ -59,15 +59,13 @@ def plot_data(df, secondary_y, y1_range, y2_range):
             title_font=dict(size=18),  # X軸のラベルのフォントサイズを設定します。
             tickfont=dict(size=18),  # X軸の目盛りのフォントサイズを設定します。
         ),
-        yaxis1=dict(
+        yaxis=dict(
             range=y1_range,  # 1つ目のY軸の表示範囲を設定します。
-            title_text=secondary_y,  # 1つ目のY軸のラベルを設定します。
-            title_font=dict(size=18),  # 1つ目のY軸のラベルのフォントサイズを設定します。
             tickfont=dict(size=18),  # 1つ目のY軸の目盛りのフォントサイズを設定します。
         ),
         yaxis2=dict(
-            range=y2_range,  # 2つ目のY軸の表示範囲を設定します。
             title_text=secondary_y,  # 2つ目のY軸のラベルを設定します。
+            range=y2_range,  # 2つ目のY軸の表示範囲を設定します。
             title_font=dict(size=18),  # 2つ目のY軸のラベルのフォントサイズを設定します。
             tickfont=dict(size=18),  # 2つ目のY軸の目盛りのフォントサイズを設定します。
             overlaying='y',
@@ -137,6 +135,11 @@ def main():
                 fig = plot_data(df_second_part, secondary_y, y1_range, y2_range)
             else:
                 fig = plot_data(df_third_part, secondary_y, y1_range, y2_range)
+
+            
+            # 1つ目のY軸のタイトルを設定します。
+            y1_title = ', '.join([col for col in df.columns[1:] if col != secondary_y])
+            fig.update_layout(yaxis1=dict(title_text=y1_title))
 
             # プロットを表示します。
             st.plotly_chart(fig)
